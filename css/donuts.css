@@ -1,0 +1,45 @@
+.donutsbox{
+  display:flex;
+  border: 1px solid grey;
+  width: 460px;
+  height: 420px;
+  overflow-y: hidden;
+  /*overflow-x: scroll:*/
+  overflow-x: hidden;
+  text-align: center;
+}
+.donut{
+  float:left;
+}
+
+.scroll{
+  width: 460px;
+  text-align: center;
+}
+
+.scroll .mark{
+  margin: 0 1em;
+  font-size: 2em;
+  text-decoration: none;
+}
+.scroll .mark:hover, .scroll .mark:focus{
+    text-decoration: none;
+}
+
+.scroll .mark.active {
+  text-indent: -9999px;
+  line-height: 0; /* Collapse the original line */
+}
+
+.scroll .mark.active:after {
+  content: ")";
+  text-indent: 0;
+  /*display: block;*/
+  line-height: initial; /* New content takes up original line height */
+}
+.scroll .mark.active:before {
+  content: "(";
+  text-indent: 0;
+  /*display: block;*/
+  line-height: initial; /* New content takes up original line height */
+}
