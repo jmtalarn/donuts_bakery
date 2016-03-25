@@ -12,5 +12,6 @@ Plain javascript module, using Require.js and tests with Jasmine.
 *Css animations
 *Add a bar chart inside the hole
 *More responsiveness
+*Add units to totals (€, $, p, ..)
 *MOOOARRR tests
 *Package it in some kind of package system aka bower or npm
