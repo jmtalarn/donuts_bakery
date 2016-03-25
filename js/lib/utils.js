@@ -51,5 +51,5 @@ var colourNameToHex = function(colour)
     if (typeof colours[colour.toLowerCase()] != 'undefined')
         return colours[colour.toLowerCase()];
 
-    return false;
+    return colour;
 }
