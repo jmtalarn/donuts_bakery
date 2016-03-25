@@ -10,5 +10,7 @@ Plain javascript module, using Require.js and tests with Jasmine.
 
 #TODO
 *Css animations
+*Add a bar chart inside the hole
 *More responsiveness
 *MOOOARRR tests
+*Package it in some kind of package system aka bower or npm
