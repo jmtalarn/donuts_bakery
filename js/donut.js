@@ -1,4 +1,4 @@
-define(['js/lib/utils', 'js/lib/format'],function(utils,format) {
+define(['./lib/utils', './lib/format'],function(utils,format) {
     // Forces the JavaScript engine into strict mode: http://tinyurl.com/2dondlh
     "use strict";
 
@@ -38,7 +38,7 @@ define(['js/lib/utils', 'js/lib/format'],function(utils,format) {
                 .data(pie)
                 .enter().append("path")
                 .attr("id", function(d, i) {
-                    return "arc_" + i;
+                    return d.data.target;
                 })
                 .attr("fill", function(d, i) {
                     return d.data.color;

@@ -1,6 +1,10 @@
+h1{ font-style: sans-serif; text-shadow: 2px 2px lightgrey;}
+section{
+  text-align: center;
+}
 .donutsbox{
-  display:flex;
-  border: 1px solid grey;
+  display:inline-flex;
+
   width: 460px;
   height: 420px;
   overflow-y: hidden;
@@ -13,6 +17,7 @@
 }
 
 .scroll{
+  display:inline-block;
   width: 460px;
   text-align: center;
 }
@@ -26,20 +31,16 @@
     text-decoration: none;
 }
 
-.scroll .mark.active {
-  text-indent: -9999px;
-  line-height: 0; /* Collapse the original line */
+.scroll .mark .active{
+  display:none;
+}
+.scroll .mark .inactive{
+  display:inline-block;
 }
 
-.scroll .mark.active:after {
-  content: ")";
-  text-indent: 0;
-  /*display: block;*/
-  line-height: initial; /* New content takes up original line height */
+.scroll .mark.active .active{
+  display:inline-block;
 }
-.scroll .mark.active:before {
-  content: "(";
-  text-indent: 0;
-  /*display: block;*/
-  line-height: initial; /* New content takes up original line height */
+.scroll .mark.active .inactive{
+  display:none;
 }

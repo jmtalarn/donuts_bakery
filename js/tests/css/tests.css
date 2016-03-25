@@ -1,0 +1,23 @@
+.floatingwindow{
+  margin: 1em;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  right: 0;
+  border: 1px solid black;
+  box-shadow: 2px 2px solid grey;
+  font-size: 0.8em;
+  background-color: rgba(255,255,255,0.8);
+
+}
+.floatingwindow .title{
+  padding: 3px;
+  font-family: monospace;
+
+}
+#bakery{
+
+  width: 460px;
+  height: 300px;
+
+}
