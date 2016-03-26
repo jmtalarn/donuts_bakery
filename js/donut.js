@@ -1,4 +1,4 @@
-define(['./lib/utils', './lib/format'],function(utils,format) {
+define(['./lib/utils', './lib/format'], function(utils, format) {
     // Forces the JavaScript engine into strict mode: http://tinyurl.com/2dondlh
     "use strict";
 
@@ -34,6 +34,16 @@ define(['./lib/utils', './lib/format'],function(utils,format) {
                 .append("g")
                 .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
+            var tweenPie = function(finish) {
+                var start = {
+                    startAngle: 0,
+                    endAngle: 0
+                };
+                var i = d3.interpolate(start, finish);
+                return function(d) {
+                    return arc(i(d));
+                };
+            }
             var path = svg.selectAll("path")
                 .data(pie)
                 .enter().append("path")
@@ -43,7 +53,10 @@ define(['./lib/utils', './lib/format'],function(utils,format) {
                 .attr("fill", function(d, i) {
                     return d.data.color;
                 })
-                .attr("d", arc);
+                .attr("d", arc)
+                .transition()
+                .duration(2000)
+                .attrTween('d', tweenPie);;
 
             var dots = svg.append("g");
             for (var i = 0; i < 4; i++) {
