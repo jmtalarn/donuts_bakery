@@ -1,9 +1,10 @@
 h1{ font-style: sans-serif; text-shadow: 2px 2px lightgrey;}
 section{
   text-align: center;
+  display: block;
 }
 .donutsbox{
-  display:inline-flex;
+  display: flex;
 
   width: 460px;
   height: 420px;
@@ -11,6 +12,7 @@ section{
   /*overflow-x: scroll:*/
   overflow-x: hidden;
   text-align: center;
+  margin: 0 auto;
 }
 .donut{
   float:left;
