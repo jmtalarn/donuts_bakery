@@ -79,7 +79,7 @@ define(['./lib/utils', './lib/format'], function(utils, format) {
                 .attr("text-anchor", "middle")
                 .style("fill", "darkgrey");
             var sumTotal = data.source[0].value.sum() + data.source[1].value.sum();
-            var sumTotalText = sumTotal.format();
+            var sumTotalText = sumTotal.format(null,null,data.units);
             var total = svg.append("text")
                 .text(sumTotalText)
                 //.attr("y", "-30px")
@@ -102,7 +102,7 @@ define(['./lib/utils', './lib/format'], function(utils, format) {
                     return (height / 2) + 10;
                 })
                 .text(function(d) {
-                    return d.data.target;
+                      return d.data.target;
                 })
                 .attr("font-family", "sans-serif")
                 .attr("font-size", "20px")
@@ -149,7 +149,7 @@ define(['./lib/utils', './lib/format'], function(utils, format) {
                     return (height / 2) + 10 + 30;
                 })
                 .text(function(d) {
-                    return d.data.value.sum().format();
+                    return d.data.value.sum().format(null,null,data.units);
                 })
                 .attr("font-family", "sans-serif")
                 .attr("font-size", "20px")

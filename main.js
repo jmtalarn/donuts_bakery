@@ -9,6 +9,7 @@ define(function (require) {
   var dataset =[
     {
       title: "REVENUE",
+      units: "€",
       source: [{
           target: "Tablet",
           color: "#5cd235",
