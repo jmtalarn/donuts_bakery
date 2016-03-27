@@ -8,5 +8,12 @@ var scroll = function(div, position, total) {
         mark[i].className = "mark pos" + i + " " + active;
     }
 
+}
 
+var reloadDonut= function(div,donutsbox,box){
+  var div = document.getElementById(div);
+  while (div.firstChild) {
+      div.removeChild(myDonuts.firstChild);
+  }
+  donutsbox[box].bake(div);
 }

@@ -142,7 +142,7 @@ define(['./lib/utils', './lib/format'], function(utils, format) {
             var sumLabels = text
                 .append("text")
                 .attr("x", function(d, i) {
-                    if (i == 0) return ((width / 2) * -1) + 50;
+                    if (i == 0) return ((width / 2) * -1) + 60;
                     if (i == 1) return (width / 2);
                 })
                 .attr("y", function(d, i) {
@@ -163,7 +163,7 @@ define(['./lib/utils', './lib/format'], function(utils, format) {
                             //Move right percentage
                             //UGLY HACKING
                             var rp = d3.select(this.parentElement.querySelector("#percent_1"));
-                            rp.attr("x", parseInt(rp.attr("x")) - 10 - this.clientWidth);
+                            rp.attr("x", parseInt(rp.attr("x")) - 10 - this.getBoundingClientRect().width);
 
                             return "end";
                         }

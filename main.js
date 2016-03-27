@@ -4,6 +4,7 @@ define(function (require) {
 
     var Donut = require('js/donut');
     require('js/scroll');
+    require('js/lib/utils');
 
   var dataset =[
     {
@@ -44,18 +45,26 @@ define(function (require) {
 }
 ];
   //We prepare the dough
-  var mahDoughnut = new Donut(dataset[0]);
+  window.mahDoughnut= [];
+  var myDonut = window.mahDoughnut;
+  myDonut[0] = new Donut(dataset[0]);
   //We bake them
-  mahDoughnut.bake("#donut_choco");
+  myDonut[0].bake("#donut_choco");
 
   //We prepare the dough
-  var mahDoughnut = new Donut(dataset[1]);
+  myDonut[1] = new Donut(dataset[1]);
   //We bake them
-  mahDoughnut.bake("#donut_glace");
+  myDonut[1].bake("#donut_glace");
 
   //We prepare the dough
-  var mahDoughnut = new Donut(dataset[2]);
+  myDonut[2] = new Donut(dataset[2]);
   //We bake them
-  mahDoughnut.bake("#donut_cream");
+  myDonut[2].bake("#donut_cream");
+
 
  });
+ var scrollCleanAndBake = function(scrolldiv,donut,total,cleandiv){
+   scroll(scrolldiv,donut,total);
+   cleanDiv(cleandiv);
+   mahDoughnut[donut].bake('#'+cleandiv);
+ };

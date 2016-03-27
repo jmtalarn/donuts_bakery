@@ -21,6 +21,12 @@ var hex = function(x) {
     x = x.toString(16);
     return (x.length == 1) ? '0' + x : x;
 };
+var cleanDiv = function(div){
+  var myDiv = document.getElementById(div);
+  while (myDiv.firstChild) {
+      myDiv.removeChild(myDiv.firstChild);
+  }
+}
 var colourNameToHex = function(colour)
 {
     var colours = {"aliceblue":"#f0f8ff","antiquewhite":"#faebd7","aqua":"#00ffff","aquamarine":"#7fffd4","azure":"#f0ffff",
