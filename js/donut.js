@@ -73,16 +73,16 @@ define(['./lib/utils', './lib/format'], function(utils, format) {
             }
             var title = svg.append("text")
                 .text(data.title)
-                .attr("y", "-30px")
+                .attr("y", "-40px")
                 .attr("font-family", "sans-serif")
                 .attr("font-size", "20px")
                 .attr("text-anchor", "middle")
                 .style("fill", "darkgrey");
             var sumTotal = data.source[0].value.sum() + data.source[1].value.sum();
-            var sumTotalText = sumTotal.format(null,null,data.units);
+            var sumTotalText = sumTotal.format(null, null, data.units);
             var total = svg.append("text")
                 .text(sumTotalText)
-                //.attr("y", "-30px")
+                .attr("y", "-10px")
                 .attr("font-family", "sans-serif")
                 .attr("font-size", "30px")
                 .attr("font-weight", "bold")
@@ -102,7 +102,7 @@ define(['./lib/utils', './lib/format'], function(utils, format) {
                     return (height / 2) + 10;
                 })
                 .text(function(d) {
-                      return d.data.target;
+                    return d.data.target;
                 })
                 .attr("font-family", "sans-serif")
                 .attr("font-size", "20px")
@@ -149,7 +149,7 @@ define(['./lib/utils', './lib/format'], function(utils, format) {
                     return (height / 2) + 10 + 30;
                 })
                 .text(function(d) {
-                    return d.data.value.sum().format(null,null,data.units);
+                    return d.data.value.sum().format(null, null, data.units);
                 })
                 .attr("font-family", "sans-serif")
                 .attr("font-size", "20px")
@@ -169,9 +169,60 @@ define(['./lib/utils', './lib/format'], function(utils, format) {
                         }
                     });
 
+            /*AREA CHART*/
+            var areaData = [];
+            for (var i = 0; i < Math.max(this.data.source[0].value.length, this.data.source[1].value.length); i++) {
+                areaData.push({
+                    x: i,
+                    y: this.data.source[0].value[i] + this.data.source[1].value[i]
+                });
+            };
+            var areasize = {
+                width: width / 2.5,
+                height: height / 3.5
+            };
+
+            var svgarea = svg.append("g").attr("transform", "translate(-" + areasize.width / 2 + ", -3 )");
+
+            var x = d3.scale.linear()
+                .domain(d3.extent(areaData, function(d) { return d.x; }))
+                .range([ 0, areasize.width]);
+
+
+            var y = d3.scale.linear()
+                .domain([0, d3.max(areaData, function(d) {
+                    return d.y;
+                })])
+                .range([areasize.height, 0]);
+            var area = d3.svg.area()
+                .x(function(d) {
+                    return x(d.x);
+                })
+                .y0(areasize.height)
+                .y1(function(d) {
+                    return y(d.y);
+                });
+            var strokeColor = middleColor(data.source[0].color, data.source[1].color);
+            var fillColor = middleColor("white", strokeColor);
+            svgarea.append("path")
+                .datum(areaData)
+                .style("fill","white").style("stroke","white")
+                .transition().duration(1500).delay(500)
+                .attr("class", "area")
+                .attr("d", area)
+                .style("fill", fillColor)
+                .style("stroke", strokeColor);
+
+
+
+
+
+
+
+
+            /***********************/
 
         }
     };
-
     return Donut;
 });

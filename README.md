@@ -10,7 +10,7 @@ Plain javascript module, using Require.js and tests with Jasmine.
 
 # TODO
 * ~~Css animations~~
-* Add a bar chart inside the hole
+* ~~Add a bar chart inside the hole~~ (added an area graph)
 * More responsiveness
 * ~~Add units to totals (€, $, p, ..)~~
 * MOOOARRR tests
