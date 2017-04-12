@@ -15,3 +15,6 @@ Plain javascript module, using Require.js and tests with Jasmine.
 * ~~Add units to totals (€, $, p, ..)~~
 * MOOOARRR tests
 * Package it in some kind of package system aka bower or npm
+
+# Check it online 
+http://jmtalarn.github.io/donutsbakery/
